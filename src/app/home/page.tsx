@@ -1,10 +1,10 @@
-import Header from "@/components/header/header";
+import Navigation from "@/components/navigation/navigation";
 
 export default function Home() {
-    return (
-      <main>
-        <Header/>
-        <div>Home</div>
-      </main>
-    );
-  }
+  return (
+    <main>
+      <Navigation />
+      <p>This is Home</p>
+    </main>
+  );
+}

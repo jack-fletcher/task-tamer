@@ -2,19 +2,16 @@ import React, {useEffect, useState} from "react";
 import './navigation.css';
 import Link from "next/link";
 
-function Navigation_Link(props:any){
-  return <Link href={props.link}>{props.name}</Link>
+function NavLink(props:any){
+  return <Link className="basis-2 text-center p-3" href={props.link}>{props.name}</Link>
 }
 
 export default function Navigation() {
     return (
-      <nav>
-        <ul>
-          <li>
-            <Navigation_Link link="/Home" name="Home"/>
-            <Navigation_Link link="/Logout" name="Logout"/>
-          </li>
-        </ul>
+      <nav className="flex flex-row justify-end bg-slate-300 dark:bg-slate-950">
+            <img className="mr-auto basis-2 p-3" src="/src/app/favicon.ico"/>
+            <NavLink link="/home" name="Home"/>
+            <NavLink link="/logout" name="Logout"/>
       </nav>
     );
   }
