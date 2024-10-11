@@ -1,9 +1,7 @@
 import { auth } from "@/auth";
-import { Tasks } from "@/components/gamification/tasks/tasks";
+import { Badges } from "@/components/gamification/badges/badges";
 import Navigation from "@/components/navigation/navigation";
-import { UserCard } from "@/components/user-card/user-card";
 import { redirect } from "next/navigation";
-import { get_all_badge_data } from "../api/database/database";
 
 export default async function Home() {
   const session = await auth()
@@ -12,10 +10,7 @@ export default async function Home() {
     
     <main>
       <Navigation />
-      <UserCard/>
-      <Tasks>
-        
-      </Tasks>
+      <Badges/>
     </main>
   );
 }
