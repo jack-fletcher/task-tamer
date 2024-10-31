@@ -13,9 +13,7 @@ export default async function Home() {
     <main>
       <Navigation />
       <UserCard/>
-      <Tasks>
-        
-      </Tasks>
+      <Tasks/>
     </main>
   );
 }

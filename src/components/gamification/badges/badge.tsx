@@ -17,7 +17,7 @@ export async function Badge(props: any) {
             </div>
             <div className="grow flex flex-col justify-end">
                 <p className="border text-center">{props.badgeDescription}</p>
-                <p className="border text-center">{props.badgeCompletionDate ? "Completed on: " + props.badgeCompletionDate + "✅" : "Yet to be completed"}</p>
+                <p className="border text-center">{props.badgeCompletionDate ? "You completed this on: " + props.badgeCompletionDate + " ✅" : "Yet to be completed"}</p>
             </div>
         </div>
     )

@@ -2,27 +2,17 @@ import { auth } from "@/auth";
 import Navigation from "@/components/navigation/navigation";
 import { randomInt } from "crypto";
 import { redirect } from "next/navigation";
+import { get_user_leaderboard_data } from "../api/database/database";
+import { GetLevelFromExperience } from "@/components/general_use/utils";
 
 export default async function Home() {
   const session = await auth()
   if (!session) redirect('/login');
-  const userData = [
-    { 
-      name: "User1",
-      experience: randomInt(200),
-      level: randomInt(10),
-    },
-    { 
-      name: "User2",
-      experience: randomInt(200),
-      level: randomInt(10),
-    },
-    { 
-      name: "User3",
-      experience: randomInt(200),
-      level: randomInt(10),
-    }
-  ]
+  const userData = await get_user_leaderboard_data();
+  userData.forEach((element: { level: number; experience: number; }) => {
+    let values = GetLevelFromExperience(element.experience);
+    element.level=values[0];
+  });
   //Sort descending - highest level user should be at the top!
   userData.sort((a, b) => b.level - a.level || b.experience - a.experience);
   return (

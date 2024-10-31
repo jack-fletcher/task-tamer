@@ -1,12 +1,19 @@
 import { auth } from "@/auth";
 import Image from "next/image";
 import { UserAvatar } from "../user-avatar/user-avatar";
+import { get_user_experience, get_user_id_from_session_email } from "@/app/api/database/database";
+import { GetLevelFromExperience, GetMaxExperiencePerLevel } from "../general_use/utils";
 
 export async function UserCard() {
     const session = await auth();
-    let experience_value = 190;
-    let max_experience_value = 200;
-    let user_level = 10;
+    if(session==null) return;
+    let user_id = null;
+    if(session.user?.email) user_id = await get_user_id_from_session_email(session.user.email);
+    let experience_value = await get_user_experience(user_id);
+    let max_experience_value = GetMaxExperiencePerLevel();
+    const values = GetLevelFromExperience(experience_value);
+    let user_level = values[0];
+    experience_value = values[1];
     let bar_width = `${(experience_value/max_experience_value)*100}%`;
     let username = "Taskmaster";
     if(session?.user?.name) username = session?.user?.name;
