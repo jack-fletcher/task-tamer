@@ -1,7 +1,7 @@
 
 
 //Derived from https://www.geeksforgeeks.org/how-to-use-modal-component-in-reactjs/
-const Modal = ({isOpen, onClose, children})=>
+const Modal = ({isOpen, onClose, children}:any)=>
 {
     if(!isOpen) return null;
 
