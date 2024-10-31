@@ -24,7 +24,7 @@ export default async function Home() {
         <th className="border m-2">Level</th>
         <th className="border m-2">Total XP</th>
         {userData.map((user) => (
-          <tr>
+          <tr key={user._id}>
             <td className="border m-2">{user.name}</td>
             <td className="border m-2">{user.level}</td>
             <td className="border m-2">{user.experience}</td>
