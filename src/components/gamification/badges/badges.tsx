@@ -4,12 +4,19 @@ import { get_all_badge_data, get_user_badge_data_from_id, get_user_id_from_sessi
 
 function user_completed_badge_date(user_badge_data:any,badge_id:any)
 {
-  for(const [key, value] of Object.entries(user_badge_data))
-  {
-    if(value.badge_id.match(badge_id))
-      {
-        return new Date(value.completion_date).toLocaleDateString();
-      }
+  //Typescript needs to know that it's a specific data type.
+  //Derived from:
+  //https://stackoverflow.com/questions/59838835/typescript-3-x-access-properties-of-type-unknown
+  //https://www.totaltypescript.com/concepts/object-is-of-type-unknown
+  interface Badge {
+    badge_id: string;
+    completion_date: string
+  }
+
+  for (const [key, badge] of Object.entries(user_badge_data)) {
+    if ((badge as Badge).badge_id.match(badge_id)) {
+      return new Date((badge as Badge).completion_date).toLocaleDateString();
+    }
   }
   return "";
 }
