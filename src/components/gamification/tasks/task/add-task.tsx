@@ -31,8 +31,8 @@ const handleOpen = () => {
         <div>
           <p className="text-center">New Task</p>
           <form action={SaveTaskHandler}>
-            <input className="m-1 w-full text-black" id="task-title" name="task-title" type="text" placeholder="Task Name"/>
-            <input className="m-1 w-full text-black" id="task-description" name="task-description" type="text" placeholder="Task Description"/>
+            <input className="m-1 w-full text-black" id="task-title" name="task-title" type="text" placeholder="Task Name" required/>
+            <textarea className="m-1 w-full text-black" id="task-description" name="task-description" placeholder="Task Description"/>
             <input className="border m-1 p-1 rounded-xl cursor-pointer" type="submit" value="Add Task"/>
           </form>
         </div>

@@ -10,7 +10,7 @@ import Badge from "@/model/badge";
  mongoose.connect(uri!);
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-
+var sanitize = require('mongo-sanitize');
 //Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -22,6 +22,8 @@ const client = new MongoClient(uri, {
 
 export async function create_new_user(user_name:string, user_email:string)
 {
+    user_name = sanitize(user_name);
+    user_email = sanitize(user_email);
     const existing_user = await User.findOne({ name: user_name, email: user_email});
     //If we already have a user, don't make another.
     if(existing_user)
@@ -50,6 +52,7 @@ export async function get_all_badge_data()
 
 export async function get_user_id_from_session_email(user_email:string)
 {
+    user_email = sanitize(user_email);
     const user_id = await User.findOne({email: user_email}, "_id").exec();
     return(user_id._id);
 }
@@ -62,6 +65,8 @@ export async function get_user_badge_data_from_id(user_id:ObjectId)
 
 export async function save_task_to_user_profile(user_id:ObjectId, task_name:string, task_description:string)
 {
+    task_name = sanitize(task_name);
+    task_description = sanitize(task_description);
     const task = new Task({
         name: task_name,
 
@@ -104,6 +109,8 @@ export async function complete_user_task_from_id(task_id:ObjectId, user_id:Objec
 
 export async function edit_user_task_from_id(task_id:ObjectId, user_id:ObjectId, task_name:String, task_description:String)
 {
+    task_name = sanitize(task_name);
+    task_description = sanitize(task_description);
     const task = await Task.findOne({_id:task_id, owner: user_id}).exec();
     task.name = task_name;
     task.description = task_description;
