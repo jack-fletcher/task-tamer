@@ -28,9 +28,9 @@ export default async function Navigation() {
           {/* <div className="items-center mr-auto flex flex-row justify-end">
             <p className="text-2xl text-center p-1 text-nowrap">Task Tamer</p>
           </div> */}
+            <NavLink link="/home" name="Home" requiredState={true} currentState={loggedIn}/>
             <NavLink link="/badges" name="Badges" requiredState={true} currentState={loggedIn}/>
             <NavLink link="/leaderboard" name="Leaderboard" requiredState={true} currentState={loggedIn}/>
-            <NavLink link="/home" name="Home" requiredState={true} currentState={loggedIn}/>
             <SignIn className="m-1 basis-2 text-center p-5"/>
             <SignOut className="m-1 basis-2 text-center p-5"/>
       </nav>
