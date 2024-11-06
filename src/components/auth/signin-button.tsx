@@ -1,5 +1,7 @@
 import { auth, signIn } from "@/auth"
- 
+import login from "../../app/assets/imgs/login.svg";
+import Image from 'next/image'
+
 export async function SignIn(props:any) {
   const session = await auth()
   if (session) return null;
@@ -10,7 +12,7 @@ export async function SignIn(props:any) {
         await signIn()
       }}
     >
-      <button className={props.className} type="submit">Sign in</button>
+      <button className={props.className} type="submit"><Image src={login} alt="Sign In"></Image></button>
     </form>
   )
 }
