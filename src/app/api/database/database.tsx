@@ -20,6 +20,28 @@ const client = new MongoClient(uri, {
   }
 });
 
+export async function create_new_user(user_name:string, user_email:string)
+{
+    const existing_user = await User.findOne({ name: user_name, email: user_email});
+    //If we already have a user, don't make another.
+    if(existing_user)
+    {
+        return;
+    }
+    const user = new User({
+        name: user_name,
+
+        email: user_email,
+      
+        last_login: new Date(),
+      
+        experience: 0,
+      
+        badges_completed: new Array(),
+    });
+    await user.save();
+}
+
 export async function get_all_badge_data()
 {
     const badge_data_mongoose = await Badge.find({}).exec();
