@@ -23,7 +23,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     async signIn({profile})
     {
-      console.log(profile);
       await create_new_user(profile?.name || "Name", profile?.email || "example@example.co.uk");
       return true;
     },
