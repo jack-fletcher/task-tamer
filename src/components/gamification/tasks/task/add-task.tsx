@@ -4,7 +4,8 @@ import { SaveTask } from "./actions"
 //Derived from https://www.geeksforgeeks.org/how-to-use-modal-component-in-reactjs/
 import React from "react";
 import Modal from "@/components/general_use/modal";
-
+import Image from 'next/image';
+import add from "../../../../app/assets/imgs/add.svg";
 export default function AddTask(props:any) {
 
 function SaveTaskHandler(formData:FormData)
@@ -25,7 +26,7 @@ const handleOpen = () => {
 
   return (
     <div>
-      <button className="border rounded-xl w-10 h-10 m-5 text-2xl cursor-pointer" onClick={(handleOpen)}>+</button>
+      <button className="border rounded-xl w-10 h-10 m-5 text-2xl cursor-pointer" onClick={(handleOpen)}><Image className="w-full h-full" src={add} alt="+"></Image></button>
       <Modal isOpen={open} onClose={handleClose}>
         <div>
           <p className="text-center">New Task</p>
