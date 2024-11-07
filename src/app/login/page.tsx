@@ -16,12 +16,12 @@ export default async function Home() {
     <body>
       <main>
         <Navigation />
-        <div className="flex flex-col h-lvh md:flex-row p-20 items-center">
+        <div className="flex flex-col h-lvh p-20 items-center">
           <div className="p-5 grow-1 w-full md:w-1/2">
-            <h1 className="text-5xl">Gain the motivation to succeed.</h1>
+            <h1 className="text-5xl text-center p-2 font-bold">Gamify your life with Task Tamer.</h1>
+            <p className="text-3xl text-center p-2">Compete with friends and family to complete the most tasks!</p>
           </div>
           <div className="p-5 w-full md:w-1/2">
-          <h1 className="text-3xl text-center">Sign up now</h1>
                 <form className="flex flex-col items-center p-5"
             action={async () => {
               "use server"
