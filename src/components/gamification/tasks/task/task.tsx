@@ -28,14 +28,10 @@ const handleOpen = () => {
         <h1 className="w-full p-2 overflow-auto">{props.task_name}</h1>
         <div className="flex flex-col">
           <p className="w-full p-2 overflow-auto">{props.task_description}</p>
-          <p className="p-2 text-right">{new Date(props.task_creation_date).toLocaleDateString()}</p>
+          <p className="p-2 text-right">{"Start Date: " + new Date(props.task_creation_date).toLocaleDateString()}</p>
         </div>
         <div className="flex flex-row justify-between p-2">
           <p className="cursor-pointer" onClick={handleOpen}>Edit</p>
-          {/* <form action={EditTask}>
-            <input className="w-full cursor-pointer" type="submit" value="Edit"/>
-            <input type="hidden" id="taskId" name="taskId" value={props.task_id}/>
-          </form> */}
           <form action={CompleteTask}>
             <input className="w-full cursor-pointer" type="submit" value="Complete"/>
             <input type="hidden" id="taskId" name="taskId" value={props.task_id}/>
@@ -46,13 +42,12 @@ const handleOpen = () => {
           </form>
         </div>
         <Modal isOpen={open} onClose={handleClose}>
-        <div>
-          <p className="text-center">New Task</p>
-          <form action={EditTaskHandler}>
-            <input className="m-1 w-full text-black" id="task-title" name="task-title" type="text" defaultValue={props.task_name}/>
-            <input className="m-1 w-full text-black" id="task-description" name="task-description" type="text" defaultValue={props.task_description}/>
-            <input className="border m-1 p-1 rounded-xl cursor-pointer" type="submit" value="Save"/>
-            <input type="hidden" id="taskId" name="taskId" value={props.task_id}/>
+        <div className="h-full">
+          <p className="text-xl text-center font-bold">Edit Task</p>
+          <form className="h-full flex flex-col" action={EditTaskHandler}>
+            <input className="m-1 w-full text-black grow-0" id="task-title" name="task-title" type="text" placeholder="Task Name" defaultValue={props.task_name} required/>
+            <textarea className="m-1 w-full resize-none grow text-black" id="task-description" name="task-description" placeholder="Task Description" defaultValue={props.task_description} required/>
+            <input className="border m-1 p-1 rounded-xl cursor-pointer w-24 grow-0 hover:bg-fuchsia-600" type="submit" value="Save"/>
           </form>
         </div>
       </Modal>

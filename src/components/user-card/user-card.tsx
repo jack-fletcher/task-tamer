@@ -21,7 +21,7 @@ export async function UserCard() {
         <div className="m-5 bg-slate-300 dark:bg-slate-950 flex flex-row max-w-screen-md rounded-md">
             <UserAvatar avatarSrc={session?.user?.image}/>
             <div className="p-2 flex flex-col grow">
-                <div className="p-1">{session?.user?.name}</div>
+                <div className="p-1 font-bold">{session?.user?.name}</div>
                 <div className="p-1">Level {user_level}</div>
                 <div className="p-1 flex items-center">
                     <div className='grow  bg-gray-100 rounded-3xl h-5'>

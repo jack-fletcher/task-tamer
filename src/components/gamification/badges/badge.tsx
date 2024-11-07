@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 export async function Badge(props: any) {
     return (
-        <div className="m-5 border h-80 w-80 flex flex-col">
+        <div className="m-5 border h-80 w-80 flex flex-col bg-slate-300 dark:bg-slate-950">
             <h3 className="border text-center text-xl font-bold text-yellow-500">{props.badgeName}</h3>
             <div className="grow mt-5 h-40 w-80 relative">
                 <Image className={clsx("rounded-2xl object-contain",

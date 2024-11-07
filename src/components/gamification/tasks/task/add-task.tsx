@@ -25,15 +25,15 @@ const handleOpen = () => {
 };
 
   return (
-    <div>
-      <button className="border rounded-xl w-10 h-10 m-5 text-2xl cursor-pointer" onClick={(handleOpen)}><Image className="w-full h-full" src={add} alt="+"></Image></button>
+    <div className="flex flex-col">
+      <button className="border rounded-xl w-10 h-10 m-5 text-2xl cursor-pointer hover:bg-fuchsia-600 self-center" onClick={(handleOpen)}><Image className="w-full h-full" src={add} alt="+"></Image></button>
       <Modal isOpen={open} onClose={handleClose}>
-        <div>
-          <p className="text-center">New Task</p>
-          <form action={SaveTaskHandler}>
-            <input className="m-1 w-full text-black" id="task-title" name="task-title" type="text" placeholder="Task Name" required/>
-            <textarea className="m-1 w-full text-black" id="task-description" name="task-description" placeholder="Task Description"/>
-            <input className="border m-1 p-1 rounded-xl cursor-pointer" type="submit" value="Add Task"/>
+        <div className="h-full">
+          <p className="text-xl text-center font-bold">New Task</p>
+          <form className="h-full flex flex-col" action={SaveTaskHandler}>
+            <input className="m-1 w-full text-black grow-0" id="task-title" name="task-title" type="text" placeholder="Task Name" required/>
+            <textarea className="m-1 w-full resize-none grow text-black" id="task-description" name="task-description" placeholder="Task Description" required/>
+            <input className="border m-1 p-1 rounded-xl cursor-pointer w-24 grow-0 hover:bg-fuchsia-600" type="submit" value="Add Task"/>
           </form>
         </div>
       </Modal>
