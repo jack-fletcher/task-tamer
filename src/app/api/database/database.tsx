@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import Task from '@/model/task';
 import User from '@/model/user';
 import Badge from "@/model/badge";
+import generateRandomUsername from 'generate-random-username';
 
 //https://www.mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/#finding-data
 
@@ -31,7 +32,7 @@ export async function create_new_user(user_name:string, user_email:string)
         return;
     }
     const user = new User({
-        name: user_name,
+        name: generateRandomUsername(),
 
         email: user_email,
       
@@ -140,6 +141,12 @@ export async function get_user_experience(user_id:ObjectId)
 {
     const user_data = await User.findById({_id:user_id}, "experience").exec();
     return(user_data.experience);
+}
+
+export async function get_user_name(user_id:ObjectId)
+{
+    const user_data = await User.findById({_id:user_id}, "name").exec();
+    return(user_data.name);
 }
 
 export async function get_user_task_completed_count(user_id:ObjectId)
