@@ -1,6 +1,6 @@
-import {useRouter} from "next/navigation"
+import { useRouter } from "next/navigation"
 
-export async function RefreshComponent(props:any) {
-const router = useRouter();
-router.refresh()
+export async function RefreshComponent(props: any) {
+    const router = useRouter();
+    router.refresh()
 }

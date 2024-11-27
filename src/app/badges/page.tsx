@@ -7,10 +7,10 @@ export default async function Home() {
   const session = await auth()
   if (!session) redirect('/login');
   return (
-    
+
     <main>
       <Navigation />
-      <Badges/>
+      <Badges />
     </main>
   );
 }

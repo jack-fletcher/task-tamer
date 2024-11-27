@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: theme('colors.slate.50');
-  --text: theme('colors.slate.900');
+  --background: theme("colors.slate.50");
+  --text: theme("colors.slate.900");
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: theme('colors.slate.900');
-    --text: theme('colors.slate.300');
+    --background: theme("colors.slate.900");
+    --text: theme("colors.slate.300");
   }
 }
 
@@ -18,7 +18,7 @@
   :root {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;

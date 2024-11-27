@@ -8,8 +8,7 @@ import Image from 'next/image'
 export default async function Home() {
   //If authenticated, don't send them to login. Go straight to home.
   const session = await auth()
-  if(session)
-  {
+  if (session) {
     redirect("/home");
   }
   return (
@@ -22,14 +21,14 @@ export default async function Home() {
             <p className="text-3xl text-center p-2">Compete with friends and family to complete the most tasks!</p>
           </div>
           <div className="p-5 w-full md:w-1/2">
-                <form className="flex flex-col items-center p-5"
-            action={async () => {
-              "use server"
-              await signIn("google")
-            }}
-          >
-            <button className="" type="submit"><Image src={GoogleDark} alt="Continue with Google"></Image></button>
-          </form>
+            <form className="flex flex-col items-center p-5"
+              action={async () => {
+                "use server"
+                await signIn("google")
+              }}
+            >
+              <button className="" type="submit"><Image src={GoogleDark} alt="Continue with Google"></Image></button>
+            </form>
           </div>
         </div>
       </main>

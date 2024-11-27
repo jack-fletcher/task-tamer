@@ -6,23 +6,22 @@ import React from "react";
 import Modal from "@/components/general_use/modal";
 import Image from 'next/image';
 import add from "../../../../app/assets/imgs/add.svg";
-export default function AddTask(props:any) {
+export default function AddTask(props: any) {
 
-function SaveTaskHandler(formData:FormData)
-{
-  SaveTask(formData);
-  handleClose();
-}
+  function SaveTaskHandler(formData: FormData) {
+    SaveTask(formData);
+    handleClose();
+  }
 
-const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-const handleClose = () => {
+  const handleClose = () => {
     setOpen(false);
-};
+  };
 
-const handleOpen = () => {
+  const handleOpen = () => {
     setOpen(true);
-};
+  };
 
   return (
     <div className="flex flex-col">
@@ -31,9 +30,9 @@ const handleOpen = () => {
         <div className="h-full">
           <p className="text-xl text-center font-bold">New Task</p>
           <form className="h-full flex flex-col" action={SaveTaskHandler}>
-            <input className="m-1 w-full text-black grow-0" id="task-title" name="task-title" type="text" placeholder="Task Name" required/>
-            <textarea className="m-1 w-full resize-none grow text-black" id="task-description" name="task-description" placeholder="Task Description" required/>
-            <input className="border m-1 p-1 rounded-xl cursor-pointer w-24 grow-0 hover:bg-fuchsia-600" type="submit" value="Add Task"/>
+            <input className="m-1 w-full text-black grow-0" id="task-title" name="task-title" type="text" placeholder="Task Name" required />
+            <textarea className="m-1 w-full resize-none grow text-black" id="task-description" name="task-description" placeholder="Task Description" required />
+            <input className="border m-1 p-1 rounded-xl cursor-pointer w-24 grow-0 hover:bg-fuchsia-600" type="submit" value="Add Task" />
           </form>
         </div>
       </Modal>
