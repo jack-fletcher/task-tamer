@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import './navigation.css';
 import { SignOut } from "../auth/signout-button";
 import { SignIn } from "../auth/signin-button";
 import { auth } from "@/auth";
