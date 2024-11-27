@@ -29,7 +29,7 @@ export default async function Home() {
               <th className="border m-2">Total XP</th>
           </tr>
         {userData.map((user) => (
-          <tr className={user._id.toString() === logged_in_user_id.toString() ? "bg-slate-950" : "bg-slate-800"} key={user._id}>
+          <tr className={user._id.toString() === logged_in_user_id.toString() ? "bg-slate-800" : "bg-slate-950"} key={user._id}>
             <td className="border m-2">{user.name}</td>
             <td className="border m-2">{user.level}</td>
             <td className="border m-2">{user.experience}</td>

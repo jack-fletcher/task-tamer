@@ -21,11 +21,10 @@ const client = new MongoClient(uri, {
   }
 });
 
-export async function create_new_user(user_name:string, user_email:string)
+export async function create_new_user(user_email:string)
 {
-    user_name = sanitize(user_name);
     user_email = sanitize(user_email);
-    const existing_user = await User.findOne({ name: user_name, email: user_email});
+    const existing_user = await User.findOne({ email: user_email});
     //If we already have a user, don't make another.
     if(existing_user)
     {
