@@ -133,7 +133,7 @@ export async function get_user_name(user_id: ObjectId) {
 }
 
 export async function get_user_task_completed_count(user_id: ObjectId) {
-    const user_data = await Task.find({ owner: user_id }).exec();
+    const user_data = await Task.find({ owner: user_id, complete: true}).exec();
     return (user_data.length);
 }
 
