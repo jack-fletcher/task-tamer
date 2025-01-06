@@ -45,6 +45,7 @@ export function Task(props: any) {
             <input className="m-1 w-full text-black grow-0" id="task-title" name="task-title" type="text" placeholder="Task Name" defaultValue={props.task_name} required />
             <textarea className="m-1 w-full resize-none grow text-black" id="task-description" name="task-description" placeholder="Task Description" defaultValue={props.task_description} required />
             <input className="border m-1 p-1 rounded-xl cursor-pointer w-24 grow-0 hover:bg-fuchsia-600" type="submit" value="Save" />
+            <input type="hidden" id="taskId" name="taskId" value={props.task_id} />
           </form>
         </div>
       </Modal>
