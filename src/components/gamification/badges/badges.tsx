@@ -23,7 +23,6 @@ function user_completed_badge_date(user_badge_data: any, badge_id: any) {
 export async function Badges(props: any) {
   const session = await auth()
   if (!session) return null;
-  const date = new Date();
   const badges = await get_all_badge_data();
   let user_id = null;
   if (session.user?.email) user_id = await get_user_id_from_session_email(session.user.email);
